@@ -113,7 +113,7 @@ interface IERC721 is IERC165 {
      *
      * Emits an {Approval} event.
      */
-    function approve(address to, uint256 tokenId) external;
+    // function approve(address to, uint256 tokenId) external;
 
     /**
      * @dev Approve or remove `operator` as an operator for the caller.
@@ -125,7 +125,7 @@ interface IERC721 is IERC165 {
      *
      * Emits an {ApprovalForAll} event.
      */
-    function setApprovalForAll(address operator, bool _approved) external;
+    // function setApprovalForAll(address operator, bool _approved) external;
 
     /**
      * @dev Returns the account approved for `tokenId` token.
@@ -134,12 +134,12 @@ interface IERC721 is IERC165 {
      *
      * - `tokenId` must exist.
      */
-    function getApproved(uint256 tokenId) external view returns (address operator);
+    // function getApproved(uint256 tokenId) external view returns (address operator);
 
     /**
      * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.
      *
      * See {setApprovalForAll}
      */
-    function isApprovedForAll(address owner, address operator) external view returns (bool);
+    // function isApprovedForAll(address owner, address operator) external view returns (bool);
 }
