@@ -403,25 +403,25 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits an {Approval} event.
      */
-    function _approve(address to, uint256 tokenId) internal virtual {
-        _tokenApprovals[tokenId] = to;
-        emit Approval(ERC721.ownerOf(tokenId), to, tokenId);
-    }
+    // function _approve(address to, uint256 tokenId) internal virtual {
+    //     _tokenApprovals[tokenId] = to;
+    //     emit Approval(ERC721.ownerOf(tokenId), to, tokenId);
+    // }
 
     /**
      * @dev Approve `operator` to operate on all of `owner` tokens
      *
      * Emits an {ApprovalForAll} event.
      */
-    function _setApprovalForAll(
-        address owner,
-        address operator,
-        bool approved
-    ) internal virtual {
-        require(owner != operator, "ERC721: approve to caller");
-        _operatorApprovals[owner][operator] = approved;
-        emit ApprovalForAll(owner, operator, approved);
-    }
+    // function _setApprovalForAll(
+    //     address owner,
+    //     address operator,
+    //     bool approved
+    // ) internal virtual {
+    //     require(owner != operator, "ERC721: approve to caller");
+    //     _operatorApprovals[owner][operator] = approved;
+    //     emit ApprovalForAll(owner, operator, approved);
+    // }
 
     /**
      * @dev Reverts if the `tokenId` has not been minted yet.
