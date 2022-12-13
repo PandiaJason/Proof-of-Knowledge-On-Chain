@@ -11,8 +11,8 @@ contract NTT is ERC721URIStorage {
     // address[]  public nntHolder;
     address public immutable nntHolder;
 
-
     constructor(address  _nntHolder) ERC721("Non-Transferable-Token", "NTT") {
+    // constructor(address  _nntHolder, string memory name_, string memory symbol_) ERC721(name_, symbol_) {
         nntHolder = _nntHolder;
     }
 
