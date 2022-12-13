@@ -117,40 +117,40 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     /**
      * @dev See {IERC721-approve}.
      */
-    function approve(address to, uint256 tokenId) public virtual override {
-        address owner = ERC721.ownerOf(tokenId);
-        require(to != owner, "ERC721: approval to current owner");
+    // function approve(address to, uint256 tokenId) public virtual override {
+    //     address owner = ERC721.ownerOf(tokenId);
+    //     require(to != owner, "ERC721: approval to current owner");
 
-        require(
-            _msgSender() == owner || isApprovedForAll(owner, _msgSender()),
-            "ERC721: approve caller is not token owner or approved for all"
-        );
+    //     require(
+    //         _msgSender() == owner || isApprovedForAll(owner, _msgSender()),
+    //         "ERC721: approve caller is not token owner or approved for all"
+    //     );
 
-        _approve(to, tokenId);
-    }
+    //     _approve(to, tokenId);
+    // }
 
     /**
      * @dev See {IERC721-getApproved}.
      */
-    function getApproved(uint256 tokenId) public view virtual override returns (address) {
-        _requireMinted(tokenId);
+    // function getApproved(uint256 tokenId) public view virtual override returns (address) {
+    //     _requireMinted(tokenId);
 
-        return _tokenApprovals[tokenId];
-    }
+    //     return _tokenApprovals[tokenId];
+    // }
 
     /**
      * @dev See {IERC721-setApprovalForAll}.
      */
-    function setApprovalForAll(address operator, bool approved) public virtual override {
-        _setApprovalForAll(_msgSender(), operator, approved);
-    }
+    // function setApprovalForAll(address operator, bool approved) public virtual override {
+    //     _setApprovalForAll(_msgSender(), operator, approved);
+    // }
 
     /**
      * @dev See {IERC721-isApprovedForAll}.
      */
-    function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
-        return _operatorApprovals[owner][operator];
-    }
+    // function isApprovedForAll(address owner, address operator) public view virtual override returns (bool) {
+    //     return _operatorApprovals[owner][operator];
+    // }
 
     /**
      * @dev See {IERC721-transferFrom}.
@@ -244,10 +244,10 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * - `tokenId` must exist.
      */
-    function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual returns (bool) {
-        address owner = ERC721.ownerOf(tokenId);
-        return (spender == owner || isApprovedForAll(owner, spender) || getApproved(tokenId) == spender);
-    }
+    // function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual returns (bool) {
+    //     address owner = ERC721.ownerOf(tokenId);
+    //     return (spender == owner || isApprovedForAll(owner, spender) || getApproved(tokenId) == spender);
+    // }
 
     /**
      * @dev Safely mints `tokenId` and transfers it to `to`.
