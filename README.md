@@ -30,7 +30,7 @@ This standard is inspired by the ERC-721 token standard.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./ERC721URIStorage.sol";
+import "https://github.com/PandiaJason/Non-Transferable-Non-Fungible-Tokens/blob/main/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract NTT is ERC721URIStorage {
