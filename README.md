@@ -22,3 +22,41 @@ In general, all human credentials are distinct and no two credential are alike. 
 A standard interface allows wallet/broker/auction applications to work with any NTT on Ethereum. We provide for simple nntSetup smart contracts as well as contracts that track an *arbitrarily large* number of NTTs. Additional applications are discussed below.
 
 This standard is inspired by the ERC-721 token standard.
+
+
+## Code
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./ERC721URIStorage.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+contract NTT is ERC721URIStorage {
+  using Counters for Counters.Counter;
+    Counters.Counter public _tokenIds;
+    // address[]  public nntHolder;
+    address public immutable nttHolder;
+
+    constructor(address  _nttHolder) ERC721("Non-Transferable-Token", "NTT") {
+    // constructor(address  _nntHolder, string memory name_, string memory symbol_) ERC721(name_, symbol_) {
+        nttHolder = _nttHolder;
+    }
+
+    function addNtt(string memory tokenURI)
+        public onlyOwner
+        returns (uint256)
+    {
+        uint256 newItemId = _tokenIds.current();
+        _mint(nttHolder, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+
+        _tokenIds.increment();
+        return newItemId;
+    }
+
+}
+
+```
+
