@@ -4,7 +4,7 @@ Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token
 ---
 title: Non-Transferable-Non-Fungible-Tokens
 author: Jason Pandian
-date: % date
+date: now -> [date]
 ---
 
 
