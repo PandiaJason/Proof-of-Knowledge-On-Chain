@@ -1,6 +1,10 @@
 ---
 title: Non-Transferable-Non-Fungible-Tokens
+mail: pandiajason@gmail.com
 author: Jason Pandian
+token: Non-Transferable-Non Fungible Token
+symbol: NTT
+
 date: 17-12-2022
 ---
 
