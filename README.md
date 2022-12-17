@@ -59,3 +59,11 @@ contract NTT is ERC721URIStorage {
 
 ```
 
+
+
+## References
+
+**Standards**
+1. [ERC-20](https://github.com/ethereum/EIPs/edit/master/EIPS/eip-20.md) Token Standard.
+1. [ERC-165](https://github.com/ethereum/EIPs/edit/master/EIPS/eip-165.md) Standard Interface Detection.
+1. [ERC-721](https://github.com/ethereum/EIPs/edit/master/EIPS/eip-721.md) Non-Fungible Token Standard.
