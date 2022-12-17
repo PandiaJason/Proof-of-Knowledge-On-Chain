@@ -12,11 +12,11 @@ Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token
 
 ## Simple Summary
 
-A standard interface for non-transferable-non-fungible tokens, also known as NTNFTs or NTTs.
+A standard interface for non-transferable-non-fungible tokens, also known as NTNFTs aka NTTs.
 
 ## Abstract
 
-The following standard allows for the implementation of a standard API for NTNFTs within smart contracts. This standard provides basic functionality to track and mint  NTNFTs aka NTTs.
+The following standard allows for the implementation of a standard API for NTTs within smart contracts. This standard provides basic functionality to track and mint NTTs.
 
 We considered use cases of NTTs being issued by authentic authorities("issuers/operators") to individuals("users"). NTTs can represent ownership over authentic digital assets with following properties:
 
