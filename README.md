@@ -1,9 +1,16 @@
 # Non-Transferable-Non-Fungible-Tokens
-Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token
+Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
+
+---
+title: my title
+author: my name
+date: today
+---
+
 
 ## Simple Summary
 
-A standard interface for non-transferable-non-fungible tokens, also known as NTNFTs.
+A standard interface for non-transferable-non-fungible tokens, also known as NTNFTs or NTTs.
 
 ## Abstract
 
