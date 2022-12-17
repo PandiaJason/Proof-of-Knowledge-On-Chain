@@ -36,7 +36,6 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract NTT is ERC721URIStorage {
   using Counters for Counters.Counter;
     Counters.Counter public _tokenIds;
-    // address[]  public nntHolder;
     address public immutable nttHolder;
 
     constructor(address  _nttHolder) ERC721("Non-Transferable-Token", "NTT") {
