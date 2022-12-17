@@ -3,17 +3,17 @@ Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token
 
 ## Simple Summary
 
-A standard interface for non-fungible tokens, also known as deeds.
+A standard interface for non-transferable-non-fungible tokens, also known as NTNFTs.
 
 ## Abstract
 
 The following standard allows for the implementation of a standard API for NTNFTs within smart contracts. This standard provides basic functionality to track and mint  NTNFTs aka NTTs.
 
-We considered use cases of NTTs being issued by authentic authorities("issuers/operators") to individuals("users"). NTTs can represent ownership over authentic digital assets. We considered a diverse universe of assets, and we know you will dream up many more:
+We considered use cases of NTTs being issued by authentic authorities("issuers/operators") to individuals("users"). NTTs can represent ownership over authentic digital assets with following properties:
 
-- Non Fungible property — unique identities, credientials
-- No Value — authentic tokens with no monetry value
-- "Trust Minimization" Economy — Open, Transperent and Secured on chains.
+- Non Fungible property — unique identities, credientials,
+- No Value — authentic tokens with no monetry value,
+- "Trust Minimization" Economy — Open, Transperent and Secured On-Chains.
 
 In general, all human credentials are distinct and no two credential are alike. NTTs are *distinguishable* and you must track the ownership of each one separately.
 
