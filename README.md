@@ -2,8 +2,8 @@
 Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
 
 ---
-title: my title
-author: my name
+title: Non-Transferable-Non-Fungible-Tokens
+author: Jason Pandian
 date: today
 ---
 
