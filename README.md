@@ -1,12 +1,11 @@
-# Non-Transferable-Non-Fungible-Tokens
-Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
-
 ---
 title: Non-Transferable-Non-Fungible-Tokens
 author: Jason Pandian
 date: 17-12-2022
 ---
 
+# Non-Transferable-Non-Fungible-Tokens
+Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
 
 ## Simple Summary
 
