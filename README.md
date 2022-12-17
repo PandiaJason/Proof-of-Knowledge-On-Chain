@@ -61,11 +61,11 @@ contract NTT is ERC721URIStorage {
 
 This Solidity code defines a contract called 'NTT' that is an implementation of the ERC721 standard for non-fungible tokens. The contract is derived from the 'ERC721URIStorage' contract, which itself implements the ERC721 standard and provides a way to store and retrieve the URI (Uniform Resource Identifier) associated with each token.
 
-The 'NTT' contract also uses the 'Counters' contract from the OpenZeppelin library to maintain a count of the total number of tokens that have been created. It has a public variable called _tokenIds that is an instance of the 'Counter' struct defined in the 'Counters' contract.
+The 'NTT' contract also uses the 'Counters' contract from the OpenZeppelin library to maintain a count of the total number of tokens that have been created. It has a public variable called '_tokenIds' that is an instance of the 'Counter' struct defined in the 'Counters' contract.
 
 The contract has a single constructor that takes an address parameter called '_nttHolder' and assigns it to the 'nttHolder' variable. The 'nttHolder' variable is an address type and is marked as 'immutable', which means it cannot be reassigned after the contract is deployed.
 
-The contract also has a public function called 'addNtt', which can be called by the owner of the contract to create a new token and associate it with a URI. The function takes a single 'string' parameter called 'tokenURI' and returns a 'uint256' value representing the ID of the new token. The function increments the '_tokenIds' counter, calls the '_mint' function inherited from the 'ERC721' contract to mint a new token, and then calls the '_setTokenURI' function inherited from the 'ERC721URIStorage' contract to set the URI of the new token.
+The contract also has a public function called 'addNtt', which can be called by the owner("issuer") of the contract to create a new token and associate it with a URI. The function takes a single 'string' parameter called 'tokenURI' and returns a 'uint256' value representing the ID of the new token. The function increments the '_tokenIds' counter, calls the '_mint' function inherited from the 'ERC721' contract to mint a new token, and then calls the '_setTokenURI' function inherited from the 'ERC721URIStorage' contract to set the URI of the new token.
 
 
 
