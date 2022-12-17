@@ -28,7 +28,7 @@ In general, all human credentials are distinct and no two credential are alike. 
 
 ## Motivation
 
-A standard interface allows wallet/broker/auction applications to work with any NTT on Ethereum. We provide for simple nttSetup smart contracts as well as contracts that track an *arbitrarily large* number of NTTs. Additional applications are discussed below.
+A standard interface allows web applications to work with any NTT on Ethereum(EVM). We provide for simple nttSetup smart contract(starter) as well as contracts that track an *arbitrarily large* number of NTTs.
 
 This standard is inspired by the ERC-721 token standard. It removes the features like 'transfer', 'burn and 'approve' functions, it also redefines the scope of '_mint' function. Finally, this standard can mint tokens by the issuer/operator('msg.sender is the 'onlyOwner') to specific user.
 
