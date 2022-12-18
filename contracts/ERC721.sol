@@ -6,7 +6,7 @@ pragma solidity ^0.8.0;
 error NotOwner();
 
 import "./IERC721.sol";
-import "@openzeppelin/contracts/token/ERC721//IERC721Receiver.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "./IERC721Metadata.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
