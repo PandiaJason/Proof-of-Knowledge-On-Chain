@@ -39,7 +39,7 @@ contract NTT is ERC721URIStorage {
 
     function multisig(uint256  _tokenId)
     public  {
-        require(registry[msg.sender] == true, "Not an authorian" );
+        require(registry[msg.sender] == true, "Not an authoritarian" );
         require( isUserAlreadySigned(_tokenId, msg.sender ) == false, "error");
         thresshold[_tokenId].tokenThresshold += 1;
         thresshold[_tokenId].signedUser.push(msg.sender);
