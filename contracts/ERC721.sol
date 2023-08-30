@@ -3,7 +3,7 @@
 
 
 pragma solidity ^0.8.0;
-error NotOwner();
+// error NotOwner();
 
 import "./IERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
@@ -44,6 +44,9 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     mapping(address => mapping(address => bool)) private _operatorApprovals;
 
     address public contractOperator;
+
+    mapping(address => bool) public registry;
+
 
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
@@ -279,11 +282,20 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
         );
     }
 
-    modifier onlyOwner {
-        // require(msg.sender == operator);
-        if (msg.sender != contractOperator) revert NotOwner();
-        _;
+    function registerUpdate(address  _authorianAddress, bool access )  
+    public returns (bool)
+        
+    {
+    require(msg.sender == contractOperator, "Not OnlyOwner");
+    registry[_authorianAddress] = access;
+         return access;
     }
+
+    // modifier onlyOwner {
+    //     // require(msg.sender == operator);
+    //     if (msg.sender != contractOperator) revert NotOwner();
+    //     _;
+    // }
     /**
      * @dev Mints `tokenId` and transfers it to `to`.
      *
@@ -296,7 +308,8 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
      *
      * Emits a {Transfer} event.
      */
-    function _mint(address to, uint256 tokenId) internal virtual onlyOwner{
+    function _mint(address to, uint256 tokenId) internal virtual {
+        require(registry[msg.sender] == true, "Not a authorian" );
         require(to != contractOperator, "ERC721: mint to the user address");
         require(!_exists(tokenId), "ERC721: token already minted");
 
