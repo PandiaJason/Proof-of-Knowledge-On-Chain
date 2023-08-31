@@ -2,14 +2,12 @@
 pragma solidity ^0.8.0;
 
 import "https://github.com/PandiaJason/Non-Transferable-Non-Fungible-Tokens/blob/main/contracts/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract NTT is ERC721URIStorage {
-  using Counters for Counters.Counter;
-    Counters.Counter public _tokenIds;
 
     address public immutable nttRECIPIENT;
 
+    // tokenid => uri 
     mapping(uint256 => string) public tokensINFO;
 
     struct tokenTHRESHOLD{
@@ -17,7 +15,7 @@ contract NTT is ERC721URIStorage {
         address [] signedAUTH;
     }
 
-    // tokenid => tokenTVAL 
+    // tokenid => tokenTHRESHOLD 
     mapping(uint256 => tokenTHRESHOLD) public tokensTDATA;
 
 
@@ -27,8 +25,10 @@ contract NTT is ERC721URIStorage {
     }
 
     function uriDATA(uint256 tokenID, string memory uri)
-        public  returns (string memory )
-    {
+        public returns (string memory )
+    {   
+        require(registry[msg.sender] == true, "Not an authoritarian" );
+        require(bytes(tokensINFO[tokenID]).length == 0, "URI already exits");
         tokensINFO[tokenID]= uri;
         return tokensINFO[tokenID];
     }
@@ -36,13 +36,10 @@ contract NTT is ERC721URIStorage {
     function mintNTT(uint256 tokenID)
         public returns (uint256)
     {
-        // uint256 newItemId = _tokenIds.current();
-
         require( tokensTDATA[tokenID].tokenTVAL >= 2, "Doesn't  met the threshold");
         _mint(nttRECIPIENT, tokenID);
         _setTokenURI(tokenID, tokensINFO[tokenID]);
 
-        // _tokenIds.increment();
         return tokenID;
     }
 
