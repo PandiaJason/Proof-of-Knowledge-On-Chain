@@ -282,12 +282,12 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
         );
     }
 
-    function registerUpdate(address  _authorianAddress, bool access )  
+    function registerUpdate(address  _authoritarianAddress, bool access )  
     public returns (bool)
         
     {
     require(msg.sender == contractOperator, "Not OnlyOwner");
-    registry[_authorianAddress] = access;
+    registry[_authoritarianAddress] = access;
          return access;
     }
 
