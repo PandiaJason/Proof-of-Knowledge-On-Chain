@@ -16,7 +16,7 @@ contract NTT is ERC721URIStorage {
     }
 
     // tokenid => tokenThresshold 
-    mapping(uint256 => tokenTHOLD) thresshold;
+    mapping(uint256 => tokenTHOLD) public thresshold;
 
 
     constructor(address  _nttHolder) ERC721("Non-Transferable-Token", "NTT") {
@@ -24,7 +24,7 @@ contract NTT is ERC721URIStorage {
         nttHolder = _nttHolder;
     }
 
-    function addNtt(string memory tokenURI)
+    function mintNtt(string memory tokenURI)
         public returns (uint256)
     {
         uint256 newItemId = _tokenIds.current();
