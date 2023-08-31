@@ -7,7 +7,7 @@ contract NTT is ERC721URIStorage {
 
     address public immutable nttRECIPIENT;
 
-    // tokenid => uri 
+    // tokenID => uri 
     mapping(uint256 => string) public tokensINFO;
 
     struct tokenTHRESHOLD{
@@ -15,7 +15,7 @@ contract NTT is ERC721URIStorage {
         address [] signedAUTH;
     }
 
-    // tokenid => tokenTHRESHOLD 
+    // tokenID => tokenTHRESHOLD 
     mapping(uint256 => tokenTHRESHOLD) public tokensTDATA;
 
 
@@ -43,19 +43,19 @@ contract NTT is ERC721URIStorage {
         return tokenID;
     }
 
-    function multiSig(uint256  _tokenId)
+    function multiSig(uint256  _tokenID)
     public  {
         require(registry[msg.sender] == true, "Not an authoritarian" );
-        require( isAuthAlreadySigned(_tokenId, msg.sender ) == false, "AuthAlreadySigned");
-        tokensTDATA[_tokenId].tokenTVAL += 1;
-        tokensTDATA[_tokenId].signedAUTH.push(msg.sender);
+        require( isAuthAlreadySigned(_tokenID, msg.sender ) == false, "AuthAlreadySigned");
+        tokensTDATA[_tokenID].tokenTVAL += 1;
+        tokensTDATA[_tokenID].signedAUTH.push(msg.sender);
             
     }
 
-    function isAuthAlreadySigned(uint256 tokenId, address signee) 
+    function isAuthAlreadySigned(uint256 tokenID, address signee) 
     public view returns (bool)
     {        
-        tokenTHRESHOLD storage signees =  tokensTDATA[tokenId];
+        tokenTHRESHOLD storage signees =  tokensTDATA[tokenID];
         for (uint i=0; i< signees.signedAUTH.length; i++){
             if (signees.signedAUTH[i] == signee){
             return true;}
