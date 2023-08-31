@@ -8,50 +8,59 @@ contract NTT is ERC721URIStorage {
   using Counters for Counters.Counter;
     Counters.Counter public _tokenIds;
 
-    address public immutable nttHolder;
+    address public immutable nttRECIPIENT;
 
-    struct tokenTHOLD{
-        uint256 tokenThresshold;
-        address [] signedUser;
+    mapping(uint256 => string) public tokensINFO;
+
+    struct tokenTHRESHOLD{
+        uint256 tokenTVAL;
+        address [] signedAUTH;
     }
 
-    // tokenid => tokenThresshold 
-    mapping(uint256 => tokenTHOLD) public thresshold;
+    // tokenid => tokenTVAL 
+    mapping(uint256 => tokenTHRESHOLD) public tokensTDATA;
 
 
-    constructor(address  _nttHolder) ERC721("Non-Transferable-Token", "NTT") {
+    constructor(address  _nttRECIPIENT) ERC721("Non-Transferable-Token", "NTT") {
     // constructor(address  _nntHolder, string memory name_, string memory symbol_) ERC721(name_, symbol_) {
-        nttHolder = _nttHolder;
+        nttRECIPIENT = _nttRECIPIENT;
     }
 
-    function mintNTT(string memory tokenURI)
+    function uriDATA(uint256 tokenID, string memory uri)
+        public  returns (string memory )
+    {
+        tokensINFO[tokenID]= uri;
+        return tokensINFO[tokenID];
+    }
+
+    function mintNTT(uint256 tokenID)
         public returns (uint256)
     {
-        uint256 newItemId = _tokenIds.current();
+        // uint256 newItemId = _tokenIds.current();
 
-        require( thresshold[newItemId].tokenThresshold >= 2, "Doesn't  met the thresshold");
-        _mint(nttHolder, newItemId);
-        _setTokenURI(newItemId, tokenURI);
+        require( tokensTDATA[tokenID].tokenTVAL >= 2, "Doesn't  met the threshold");
+        _mint(nttRECIPIENT, tokenID);
+        _setTokenURI(tokenID, tokensINFO[tokenID]);
 
-        _tokenIds.increment();
-        return newItemId;
+        // _tokenIds.increment();
+        return tokenID;
     }
 
-    function multisig(uint256  _tokenId)
+    function multiSig(uint256  _tokenId)
     public  {
         require(registry[msg.sender] == true, "Not an authoritarian" );
-        require( isUserAlreadySigned(_tokenId, msg.sender ) == false, "error");
-        thresshold[_tokenId].tokenThresshold += 1;
-        thresshold[_tokenId].signedUser.push(msg.sender);
+        require( isAuthAlreadySigned(_tokenId, msg.sender ) == false, "AuthAlreadySigned");
+        tokensTDATA[_tokenId].tokenTVAL += 1;
+        tokensTDATA[_tokenId].signedAUTH.push(msg.sender);
             
     }
 
-    function isUserAlreadySigned(uint256 tokenId, address user) 
+    function isAuthAlreadySigned(uint256 tokenId, address signee) 
     public view returns (bool)
     {        
-        tokenTHOLD storage users =  thresshold[tokenId];
-        for (uint i=0; i< users.signedUser.length; i++){
-            if (users.signedUser[i] == user){
+        tokenTHRESHOLD storage signees =  tokensTDATA[tokenId];
+        for (uint i=0; i< signees.signedAUTH.length; i++){
+            if (signees.signedAUTH[i] == signee){
             return true;}
         }return false;
     }
