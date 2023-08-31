@@ -24,7 +24,7 @@ contract NTT is ERC721URIStorage {
         nttHolder = _nttHolder;
     }
 
-    function mintNtt(string memory tokenURI)
+    function mintNTT(string memory tokenURI)
         public returns (uint256)
     {
         uint256 newItemId = _tokenIds.current();
