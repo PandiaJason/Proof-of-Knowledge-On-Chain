@@ -3,11 +3,17 @@ pragma solidity ^0.8.0;
 
 import "https://github.com/PandiaJason/Non-Transferable-Non-Fungible-Tokens/blob/main/contracts/ERC721URIStorage.sol";
 
-contract NTT is ERC721URIStorage {
+/**
+* @dev Implementation of https://github.com/PandiaJason/Non-Transferable-Non-Fungible-Tokens 
+* Non_Transferable Token with MultiSig Scheme
+* {Modified Extention of ERC721}.
+*/
 
+contract NTT is ERC721URIStorage {
+    // immutable nttRECIPIENT address to keep NTT
     address public immutable nttRECIPIENT;
 
-    // tokenID => uri 
+    // Mapping of tokenID => uri 
     mapping(uint256 => string) public tokensINFO;
 
     struct tokenTHRESHOLD{
@@ -15,7 +21,7 @@ contract NTT is ERC721URIStorage {
         address [] signedAUTH;
     }
 
-    // tokenID => tokenTHRESHOLD 
+    // Mapping of tokenID => tokenTHRESHOLD 
     mapping(uint256 => tokenTHRESHOLD) public tokensTDATA;
 
 
@@ -23,7 +29,12 @@ contract NTT is ERC721URIStorage {
     // constructor(address  _nntHolder, string memory name_, string memory symbol_) ERC721(name_, symbol_) {
         nttRECIPIENT = _nttRECIPIENT;
     }
-
+    
+    /**
+    * @dev Implementation of function uriDATA
+    * verifies msg.sender, uri length and set uri
+    * return uriDATA {string}
+    */
     function uriDATA(uint256 tokenID, string memory uri)
         public returns (string memory )
     {   
@@ -33,9 +44,16 @@ contract NTT is ERC721URIStorage {
         return tokensINFO[tokenID];
     }
 
+    /**
+    * @dev Implementation of function mintNTT
+    * verifies msg.sender, uri length, tokenTVAL and 
+    * trigers mint, setTokenURI 
+    * return tokenID {uint256}
+    */
     function mintNTT(uint256 tokenID)
         public returns (uint256)
     {
+        require(bytes(tokensINFO[tokenID]).length != 0, "URI doesn't exits");
         require( tokensTDATA[tokenID].tokenTVAL >= 2, "Doesn't  met the threshold");
         _mint(nttRECIPIENT, tokenID);
         _setTokenURI(tokenID, tokensINFO[tokenID]);
@@ -43,8 +61,15 @@ contract NTT is ERC721URIStorage {
         return tokenID;
     }
 
+
+    /**
+    * @dev Implementation of function multiSIG
+    * verifies msg.sender, uri length, isAuthAlreadySigned and 
+    * appends tokenTVAL by 1, & signedAUTH
+    */
     function multiSIG(uint256  _tokenID)
     public  {
+        require(bytes(tokensINFO[_tokenID]).length != 0, "URI doesn't exits");
         require(registry[msg.sender] == true, "Not an authoritarian" );
         require( isAuthAlreadySigned(_tokenID, msg.sender ) == false, "AuthAlreadySigned");
         tokensTDATA[_tokenID].tokenTVAL += 1;
@@ -52,6 +77,12 @@ contract NTT is ERC721URIStorage {
             
     }
 
+    /**
+    * @dev Implementation of function isAuthAlreadySigned
+    * struct tokenTHRESHOLD retrived from the storage
+    * iterate the specific tokenTDATA and check signee or not
+    * bool return true or false
+    */
     function isAuthAlreadySigned(uint256 tokenID, address signee) 
     public view returns (bool)
     {        
