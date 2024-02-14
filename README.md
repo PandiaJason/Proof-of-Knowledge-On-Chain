@@ -9,7 +9,7 @@ completed date: 10-10-2023
 ---
 
 # Proof-of-Knowledge-On-Chain
-Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
+Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Tokens.
 
 ## Simple Summary
 
