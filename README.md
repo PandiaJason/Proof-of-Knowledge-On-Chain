@@ -4,7 +4,8 @@ mail: pandiajason@gmail.com
 author: Jason Pandian
 symbol: NTT
 EVM: Yes
-date: 17-12-2022
+started date: 17-12-2022
+completed date: 10-10-2023
 ---
 
 # Non-Transferable-Non-Fungible-Tokens
