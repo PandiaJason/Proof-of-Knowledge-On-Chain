@@ -8,7 +8,7 @@ started date: 17-12-2022
 completed date: 10-10-2023
 ---
 
-# Non-Transferable-Non-Fungible-Tokens
+# Proof-of-Knowledge-On-Chain
 Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Token 
 
 ## Simple Summary
