@@ -17,7 +17,7 @@ A standard interface for non-transferable-non-fungible tokens, also known as NTN
 
 ## Abstract
 
-The following standard allows for the implementation of a standard API for NTTs within smart contracts. This standard provides basic functionality to track and mint NTTs with MultiSig-registry.
+The following standard allows for the implementation of a standard API for NTTs within smart contracts. This standard provides functionalities to track and mint NTTs with MultiSig-registry with Zero Knowledge Proof extention.
 
 We considered use cases of NTTs being issued by authentic authorities("issuers/operators") to individuals("users"). NTTs can represent ownership over authentic digital assets with following properties:
 
