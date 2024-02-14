@@ -1,5 +1,5 @@
 ---
-title: Non-Transferable-Non-Fungible-Tokens
+title: Proof of Knowledge On-Chain
 mail: pandiajason@gmail.com
 author: Jason Pandian
 symbol: NTT
