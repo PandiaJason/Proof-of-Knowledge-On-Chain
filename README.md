@@ -159,7 +159,6 @@ contract NTT is ERC721URIStorage, ReentrancyGuard {
     }
 }
 
-
 ```
 
 This Solidity code defines a contract called 'NTT' that is an implementation of the ERC721 standard for non-fungible tokens. The contract is derived from the 'ERC721URIStorage' contract, which itself implements the ERC721 standard and provides a way to store and retrieve the URI (Uniform Resource Identifier) associated with each token.
