@@ -168,16 +168,12 @@ The 'NTT' contract also uses the 'Counters' contract from the OpenZeppelin libra
 
 The contract has a single constructor that takes an address parameter called '_nttHolder' and assigns it to the 'nttHolder' variable. The 'nttHolder' variable is an address type and is marked as 'immutable', which means it cannot be reassigned after the contract is deployed.
 
-The contract also has a public function called 'addNtt', which can be called by the owner("issuer") of the contract to create a new token and associate it with a URI. The function takes a single 'string' parameter called 'tokenURI' and returns a 'uint256' value representing the ID of the new token. The function increments the '_tokenIds' counter, calls the '_mint' function inherited from the 'ERC721' contract to mint a new token, and then calls the '_setTokenURI' function inherited from the 'ERC721URIStorage' contract to set the URI of the new token.
-
-
-
-
-
+The contract also has a public function called 'addNtt', which can be called by the owner("issuer") of the contract to create a new token and associate it with a URI. The function takes a single 'string' parameter called 'tokenURI' and returns a 'uint256' value representing the ID of the new token. The function increments the '_tokenIds' counter, calls the '_mint' function inherited from the 'ERC721' contract to mint a new token, and then calls the '_setTokenURI' function inherited from the 'ERC721URIStorage' contract to set the URI of the new token. It also support MultiSig Registry for blockchain based credential management system[1]
 
 ## References
 
 **Standards**
-1. [ERC-20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) Token Standard.
-1. [ERC-165](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md) Standard Interface Detection.
-1. [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) Non-Fungible Token Standard.
+[1] Jason Pandian, "Proof of Knowledge On-Chain", [link](https://github.com/PandiaJason/Proof-of-Knowledge-On-Chain/blob/main/ME%20JASON%20PROJECT%20DOCUMENT-FINAL-POKOC.pdf) 
+[2] [ERC-20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) Token Standard.
+[3] [ERC-165](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-165.md) Standard Interface Detection.
+[4] [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) Non-Fungible Token Standard.
