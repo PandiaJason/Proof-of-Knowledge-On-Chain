@@ -8,6 +8,11 @@ started date: 17-12-2022
 completed date: 10-10-2023
 ---
 
+- 🚀 Implemented Non-Transferable Tokens (NTT) before Soul Bound Tokens.
+- 📜 Implemented a Smart Contract-based multi-signature repository mechanism for signing and securing Knowledge Credentials (ed credentials).
+- 🤝 Organized NTT/NTNFT with Multi-Sig mechanism, using extensible ZoKarates for the Proof of Knowledge on Chain framework.
+
+
 # Proof-of-Knowledge-On-Chain
 Implementation of Non-Transferable-Non Fungible Tokens using Non-Fungible Tokens.
 
